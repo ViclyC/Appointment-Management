@@ -29,7 +29,7 @@
         },
         "emailHandler": {
           "deploymentBucketName": "amplify-amplify27454a447da44-staging-25104-deployment",
-          "s3Key": "amplify-builds/emailHandler-6f315159744e452f674a-build.zip",
+          "s3Key": "amplify-builds/emailHandler-67766d51447555746573-build.zip",
           "emailAddress": "dianeburciaga.2@gmail.com"
         }
       },
