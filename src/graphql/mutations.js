@@ -12,6 +12,7 @@ export const createAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }
@@ -28,6 +29,7 @@ export const updateAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }
@@ -44,6 +46,7 @@ export const deleteAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }

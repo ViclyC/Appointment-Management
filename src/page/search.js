@@ -5,7 +5,7 @@ import '../css/search.scss';
 
 const Search = (props) => {
     const { Title } = Typography;
-    const { username, appointments } = useContext(AppContext);
+    const { appointments, isAdmin } = useContext(AppContext);
     const [startDate, setStartDate] = useState();
     const [startTime, setStartTime] = useState();
     const [endDate, setEndDate] = useState();
@@ -66,7 +66,7 @@ const Search = (props) => {
             const end = new Date(start);
             end.setHours(start.getHours() + 2, 0, 0, 0);
             let output = `Time: ${start.toLocaleString([], { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })} - ${end.toLocaleString([], { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true })}`;
-            if (username === 'admin') output = 'Client: ' + appointmentUser + ' | ' + output;
+            if (isAdmin) output = 'Client: ' + appointmentUser + ' | ' + output;
             return output;
         })
         setSearchResult(result);

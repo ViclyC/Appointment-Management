@@ -28,11 +28,13 @@ export default function AppointmentUpdateForm(props) {
     time: "",
     type: "",
     note: "",
+    email: "",
   };
   const [client, setClient] = React.useState(initialValues.client);
   const [time, setTime] = React.useState(initialValues.time);
   const [type, setType] = React.useState(initialValues.type);
   const [note, setNote] = React.useState(initialValues.note);
+  const [email, setEmail] = React.useState(initialValues.email);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = appointmentRecord
@@ -42,6 +44,7 @@ export default function AppointmentUpdateForm(props) {
     setTime(cleanValues.time);
     setType(cleanValues.type);
     setNote(cleanValues.note);
+    setEmail(cleanValues.email);
     setErrors({});
   };
   const [appointmentRecord, setAppointmentRecord] =
@@ -61,6 +64,7 @@ export default function AppointmentUpdateForm(props) {
     time: [{ type: "Required" }],
     type: [{ type: "Required" }],
     note: [{ type: "Required" }],
+    email: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -115,6 +119,7 @@ export default function AppointmentUpdateForm(props) {
           time,
           type,
           note,
+          email,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -174,6 +179,7 @@ export default function AppointmentUpdateForm(props) {
               time,
               type,
               note,
+              email,
             };
             const result = onChange(modelFields);
             value = result?.client ?? value;
@@ -203,6 +209,7 @@ export default function AppointmentUpdateForm(props) {
               time: value,
               type,
               note,
+              email,
             };
             const result = onChange(modelFields);
             value = result?.time ?? value;
@@ -230,6 +237,7 @@ export default function AppointmentUpdateForm(props) {
               time,
               type: value,
               note,
+              email,
             };
             const result = onChange(modelFields);
             value = result?.type ?? value;
@@ -257,6 +265,7 @@ export default function AppointmentUpdateForm(props) {
               time,
               type,
               note: value,
+              email,
             };
             const result = onChange(modelFields);
             value = result?.note ?? value;
@@ -270,6 +279,34 @@ export default function AppointmentUpdateForm(props) {
         errorMessage={errors.note?.errorMessage}
         hasError={errors.note?.hasError}
         {...getOverrideProps(overrides, "note")}
+      ></TextField>
+      <TextField
+        label="Email"
+        isRequired={true}
+        isReadOnly={false}
+        value={email}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              client,
+              time,
+              type,
+              note,
+              email: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.email ?? value;
+          }
+          if (errors.email?.hasError) {
+            runValidationTasks("email", value);
+          }
+          setEmail(value);
+        }}
+        onBlur={() => runValidationTasks("email", email)}
+        errorMessage={errors.email?.errorMessage}
+        hasError={errors.email?.hasError}
+        {...getOverrideProps(overrides, "email")}
       ></TextField>
       <Flex
         justifyContent="space-between"

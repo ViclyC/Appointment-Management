@@ -8,7 +8,7 @@ import { getAppointment } from '../graphql/queries';
 const Appointment = (props) => {
     const { Title } = Typography;
     const { TextArea } = Input;
-    const { username, availability } = useContext(AppContext);
+    const { username, availability, userEmail } = useContext(AppContext);
     const [selectedDate, setSelectedDate] = useState(props.preSelectedDate);
     const [selectedTime, setSelectedTime] = useState();
     const [selectedAppointmentLength, setSelectedAppointmentLength] = useState(props.isUpdate ? props.details[1][2] || '' : '');
@@ -92,6 +92,7 @@ const Appointment = (props) => {
                         time: newAppointmentTime.getTime(),
                         type: selectedAppointmentLength,
                         note: additionalNote,
+                        email: userEmail,
                     }
                 },
             });
@@ -147,7 +148,7 @@ const Appointment = (props) => {
                         time: props.editDate.getTime(),
                         type: selectedAppointmentLength,
                         note: additionalNote,
-
+                        email: userEmail,
                     }
                 },
             });
@@ -185,6 +186,7 @@ const Appointment = (props) => {
                         time: newAppointmentTime.getTime(),
                         type: selectedAppointmentLength,
                         note: additionalNote,
+                        email: userEmail,
                     }
                 },
             });

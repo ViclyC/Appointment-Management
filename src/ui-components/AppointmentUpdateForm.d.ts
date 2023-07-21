@@ -18,12 +18,14 @@ export declare type AppointmentUpdateFormInputValues = {
     time?: number;
     type?: string;
     note?: string;
+    email?: string;
 };
 export declare type AppointmentUpdateFormValidationValues = {
     client?: ValidationFunction<string>;
     time?: ValidationFunction<number>;
     type?: ValidationFunction<string>;
     note?: ValidationFunction<string>;
+    email?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type AppointmentUpdateFormOverridesProps = {
@@ -32,6 +34,7 @@ export declare type AppointmentUpdateFormOverridesProps = {
     time?: PrimitiveOverrideProps<TextFieldProps>;
     type?: PrimitiveOverrideProps<TextFieldProps>;
     note?: PrimitiveOverrideProps<TextFieldProps>;
+    email?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type AppointmentUpdateFormProps = React.PropsWithChildren<{
     overrides?: AppointmentUpdateFormOverridesProps | undefined | null;

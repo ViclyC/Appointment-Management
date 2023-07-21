@@ -11,6 +11,7 @@ export const onCreateAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }
@@ -26,6 +27,7 @@ export const onUpdateAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }
@@ -41,6 +43,7 @@ export const onDeleteAppointment = /* GraphQL */ `
       time
       type
       note
+      email
       createdAt
       updatedAt
     }

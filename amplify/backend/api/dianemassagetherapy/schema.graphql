@@ -8,6 +8,7 @@ type Appointment @model @auth(rules: [ { allow: public } ] ){
   time: AWSTimestamp!
   type: String!
   note: String!
+  email: String!
 }
 
 type Availability @model @auth(rules: [ { allow: public } ] ){

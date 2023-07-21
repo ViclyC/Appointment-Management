@@ -126,6 +126,21 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "emailHandler": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ],
+          "category": "api",
+          "resourceName": "dianemassagetherapy"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -166,6 +181,30 @@
         {
           "category": "function",
           "resourceName": "dianemassagetherapyd63f486fd63f486fPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailHandler_emailAddress": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_emailHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "emailHandler"
         }
       ]
     }

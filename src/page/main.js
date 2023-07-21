@@ -18,6 +18,7 @@ const Main = (props) => {
     const [menuItems, setMenuItems] = useState([]);
     const [dataLoaded, setDataLoaded] = useState(false);
     const [username, setUsername] = useState('');
+    const [userEmail, setUserEmail] = useState('');
     const [isAdmin, setIsAdmin] = useState(false);
     const [appointments, setAppointments] = useState({});
     const [availability, setAvailability] = useState([]);
@@ -34,8 +35,12 @@ const Main = (props) => {
     const loadData = async () => {
         const user = await Auth.currentAuthenticatedUser();
         const currentUsername = user.username;
+        const currentUserEmail = user?.attributes?.email || '';
+        console.log(user)
         setUsername(currentUsername);
-        const isCurrentUserAdmin = currentUsername === 'dburciaga2';
+        setUserEmail(currentUserEmail);
+        const cognitoGroup = user?.signInUserSession?.accessToken?.payload['cognito:groups'] || [];
+        const isCurrentUserAdmin = cognitoGroup.includes('Admin');
         setIsAdmin(isCurrentUserAdmin);
         const defaultMenuItems = [
             {
@@ -104,7 +109,7 @@ const Main = (props) => {
         const temp = {};
         appointmentsFromAPI.forEach((e) => {
             const dateObject = new Date(e.time);
-            temp[dateObject] = [e.id, e.client, e.type, e.note];
+            temp[dateObject] = [e.id, e.client, e.type, e.note, e.email]
         })
         const sortedAppointments = Object.keys(temp).sort().reduce(
             (obj, key) => {
@@ -171,7 +176,7 @@ const Main = (props) => {
         const temp = {};
         appointmentsFromAPI.forEach((e) => {
             const dateObject = new Date(e.time);
-            temp[dateObject] = [e.id, e.client, e.type, e.note];
+            temp[dateObject] = [e.id, e.client, e.type, e.note, e.email];
         })
         const sortedAppointments = Object.keys(temp).sort().reduce(
             (obj, key) => {
@@ -193,7 +198,7 @@ const Main = (props) => {
         }
     };
 
-    return (dataLoaded ? <AppContext.Provider value={{ username, isAdmin, appointments, availability, setAppointments, setAvailability }}>
+    return (dataLoaded ? <AppContext.Provider value={{ username, userEmail, isAdmin, appointments, availability, setAppointments, setAvailability }}>
         <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={menuItems} style={{ color: '#3B0404', backgroundColor: '#DB8780' }} />
         {
             current === 'schedule' ? <Schedule setCurrent={setCurrent} setPreSelectedDate={setPreSelectedDate} loadAvailability={loadAvailability} loadAppointments={loadAppointments} /> :
