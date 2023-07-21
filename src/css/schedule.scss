@@ -1,0 +1,42 @@
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.events .ant-badge-status {
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.notes-month {
+  font-size: 28px;
+  text-align: center;
+}
+.notes-month section {
+  font-size: 28px;
+}
+
+.appointment-space {
+  width: 100%;
+}
+
+.appointment-card {
+  width: 100%;
+  div {
+    display: flex;
+    justify-content: space-between;
+    >span {
+      transform: translateY(15%);
+    }
+  }
+}
+
+.no-appointment {
+  display: flex;
+  justify-content: space-between;
+  >span {
+    transform: translateY(15%);
+  }
+}

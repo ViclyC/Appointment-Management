@@ -1,0 +1,36 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify27454a447da44-staging-25104-authRole",
+      "UnauthRoleArn": "arn:aws:iam::075156954811:role/amplify-amplify27454a447da44-staging-25104-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::075156954811:role/amplify-amplify27454a447da44-staging-25104-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-amplify27454a447da44-staging-25104-deployment",
+      "UnauthRoleName": "amplify-amplify27454a447da44-staging-25104-unauthRole",
+      "StackName": "amplify-amplify27454a447da44-staging-25104",
+      "StackId": "arn:aws:cloudformation:us-west-1:075156954811:stack/amplify-amplify27454a447da44-staging-25104/6f29c460-2771-11ee-b38e-069c27af7045",
+      "AmplifyAppId": "d1nasr17wspfxr",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify27454a447da44-staging-25104-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "dianemassagetherapyd63f486fd63f486f": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "dianemassagetherapyd63f486fd63f486fPostConfirmation": {
+          "GROUP": "User",
+          "deploymentBucketName": "amplify-amplify27454a447da44-staging-25104-deployment",
+          "s3Key": "amplify-builds/dianemassagetherapyd63f486fd63f486fPostConfirmation-6748704e586b6a474c6c-build.zip"
+        },
+        "AdminQueries4b51898c": {
+          "deploymentBucketName": "amplify-amplify27454a447da44-staging-25104-deployment",
+          "s3Key": "amplify-builds/AdminQueries4b51898c-65395438375941787076-build.zip"
+        }
+      },
+      "api": {
+        "AdminQueries": {}
+      }
+    }
+  }
+}
