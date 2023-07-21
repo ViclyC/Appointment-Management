@@ -29,7 +29,8 @@
         }
       },
       "api": {
-        "AdminQueries": {}
+        "AdminQueries": {},
+        "dianemassagetherapy": {}
       }
     }
   }

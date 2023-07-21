@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "dianemassagetherapy",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authdianemassagetherapyd63f486fd63f486f",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
