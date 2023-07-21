@@ -36,7 +36,6 @@ const Main = (props) => {
         const user = await Auth.currentAuthenticatedUser();
         const currentUsername = user.username;
         const currentUserEmail = user?.attributes?.email || '';
-        console.log(user)
         setUsername(currentUsername);
         setUserEmail(currentUserEmail);
         const cognitoGroup = user?.signInUserSession?.accessToken?.payload['cognito:groups'] || [];
